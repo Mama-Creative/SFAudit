@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Supa Fly Social Audit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE work: a client-facing agency audit, calm and evidence-led
+   IDEA a Mama studio report: yellow cover band, black spine, Georgia headings
+   PICTURE brand search bars on the cover; a positioning map in the competitor section
+   COLOUR Mama yellow #FFD200 and black lead; greys support; Supa Fly blue only in its logo
+   TYPE Georgia headings + Google Sans Flex / Helvetica Neue body (Mama guide)
+   LAYOUT black sidebar nav at laptop width; top scroll nav and stacked sections on phone */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#0f0f0f);--ink:light-dark(#000000,#f1f1f1);--mute:light-dark(#525252,#bdbdbd);--soft:light-dark(#696969,#a8a8a8);--rule:light-dark(#d9d9d9,#333333);--panel:light-dark(#f5f5f5,#1a1a1a);--tint:light-dark(#fff6c4,#2a2400);--y:#ffd200;--good:light-dark(#1d6b3a,#7fd39b);--warn:light-dark(#8a5a00,#ffcf66)}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px;scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Google Sans Flex","Helvetica Neue",Helvetica,Arial,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:-.01em;line-height:1.1;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,4.6vw,52px)}
+h2{font-size:clamp(28px,3.4vw,40px);margin-bottom:12px}
+h3{font-size:21px;margin:32px 0 10px}
+p{margin:0 0 14px;max-width:70ch}
+a{color:inherit}
+img{max-width:100%}
+.shell{display:block}
+.side{position:sticky;top:0;z-index:5;background:#000;color:#fff}
+.side .brand{display:none}
+.side{display:flex;align-items:center}
+.home{flex:none;display:block;padding:8px 0 8px max(16px,3vw);border-radius:4px}
+.home:focus-visible{outline:2px solid var(--y);outline-offset:2px}
+.home .mark{width:34px;height:34px}
+.side .nav{flex:1;padding-left:10px}
+.nav{display:flex;gap:4px;overflow-x:auto;padding:8px max(16px,3vw);scrollbar-width:thin}
+.nav a{flex:none;text-decoration:none;color:#d9d9d9;font-size:14px;padding:10px 12px;border-radius:4px;white-space:nowrap}
+.nav a:hover{color:#fff;background:#1f1f1f}
+.nav a:focus-visible{outline:2px solid var(--y);outline-offset:1px}
+.nav a.on{color:#000;background:var(--y)}
+@media(min-width:900px){
+.shell{display:grid;grid-template-columns:270px minmax(0,1fr)}
+.side{height:100vh;overflow-y:auto;display:flex;flex-direction:column;align-self:start}
+.side{align-items:stretch}
+.home{padding:28px 24px 0;align-self:flex-start}
+.side .brand{display:block;padding:18px 24px 20px}
+.side .brand .lockup{margin-top:0}
+.nav{flex-direction:column;overflow:visible;padding:0 14px 24px;gap:2px}
+.nav a{white-space:normal;padding:9px 12px}
+.side .foot{margin-top:auto;padding:20px 24px;font-size:13px;color:#a8a8a8}
+}
+.side .foot{display:none}
+@media(min-width:900px){.side .foot{display:block}}
+.mark{width:34px;height:34px;display:block}
+.word{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;letter-spacing:-.03em;line-height:1}
+.lockup{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.lockup .word{font-size:34px}
+.lockup .x{font-size:22px;font-weight:400}
+.lockup img{height:30px;width:auto}
+.side .lockup{margin-top:18px;gap:10px}
+.side .lockup .word{font-size:24px}
+.side .lockup img{height:20px}
+.side .sub{font-size:13px;color:#a8a8a8;margin-top:10px}
+.band{padding-block:clamp(32px,4.5vw,64px);padding-inline:max(5vw,16px)}
+.wrap{max-width:1080px}
+.cover{background:var(--y);color:#000}
+.cover .meta{font-size:14px;margin:14px 0 0}
+.cover-grid{display:grid;gap:32px;margin-top:28px}
+@media(min-width:1100px){.cover-grid{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:start}}
+.cover .lede{font-size:18px;max-width:52ch}
+.short{margin:18px 0 0;padding:0;list-style:none}
+.short li{padding:10px 0;border-top:1px solid rgba(0,0,0,.25)}
+.short li:last-child{border-bottom:1px solid rgba(0,0,0,.25)}
+.chartcard{background:#fff;color:#000;padding:22px;border-radius:6px}
+.chartcard h3{margin:0 0 4px;font-size:19px}
+.chartcard .cap{font-size:13px;color:#525252;margin:0 0 16px}
+.bars{display:grid;gap:10px}
+.bar{display:grid;grid-template-columns:8.5em minmax(0,1fr) 3.2em;align-items:center;gap:10px;font-size:15px}
+.bar .t{height:26px;background:#f1f1f1;border-radius:2px;position:relative;overflow:hidden}
+.bar .f{position:absolute;inset:0 auto 0 0;background:#000;border-radius:2px}
+.bar.hi .f{background:var(--y);box-shadow:inset 0 0 0 1.5px #000}
+.bar .v{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:700}
+.bar .n{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.panelbars .bar .t{background:var(--panel)}
+.panelbars .bar .f{background:var(--ink)}
+.kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:rgba(0,0,0,.25);border:1px solid rgba(0,0,0,.25);margin-top:20px}
+
+.kpi{background:var(--y);padding:16px}
+.kpi b{display:block;font-family:Georgia,serif;font-size:clamp(28px,3vw,36px);line-height:1;white-space:nowrap}
+.kpi span{display:block;font-size:14px;margin-top:8px}
+section.band{border-top:1px solid var(--rule)}
+.point{font-size:18px;color:var(--mute);max-width:62ch;margin-bottom:24px}
+.note{background:var(--tint);padding:18px 20px;border-radius:6px;margin:20px 0;max-width:820px}
+.note b:first-child{display:block;margin-bottom:6px}
+.note p:last-child,.note ul:last-child{margin-bottom:0}
+.note ul{margin:0;padding-left:20px}
+.small{font-size:14px;color:var(--soft)}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:8px 0 20px}
+th{text-align:left;font-weight:700;border-bottom:2px solid var(--ink);padding:8px 10px;vertical-align:bottom}
+td{border-bottom:1px solid var(--rule);padding:9px 10px;vertical-align:top}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;font-size:13px;padding:2px 8px;border-radius:20px;border:1px solid currentColor;white-space:nowrap}
+.tag.g{color:var(--good)}
+.tag.w{color:var(--warn)}
+.tag.m{color:var(--mute)}
+.two{display:grid;gap:28px}
+@media(min-width:760px){.two{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.swot{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:12px 0 24px}
+@media(min-width:700px){.swot{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.swot div{background:var(--bg);padding:16px 18px}
+.swot h4{margin:0 0 8px;font-size:15px}
+.swot ul{margin:0;padding-left:18px;font-size:15px}
+.swot li{margin-bottom:6px}
+.comp{border-top:2px solid var(--ink);margin-top:40px;padding-top:6px}
+.comp h3{margin-top:12px}
+.recs{display:grid;gap:16px;margin-top:8px}
+@media(min-width:760px){.recs{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.rec{background:var(--panel);border-radius:6px;padding:20px}
+.rec h3{margin:0 0 8px;font-size:19px}
+.rec p{font-size:15px;margin:0}
+ul.plain{padding-left:20px;max-width:75ch}
+ul.plain li{margin-bottom:8px}
+.fig{position:relative;min-height:380px;background:var(--panel);border-radius:6px;margin:16px 0 8px}
+.fig>svg{position:absolute;inset:0;width:100%;height:100%}
+svg text{paint-order:stroke;stroke:var(--panel);stroke-width:4px;font-family:"Google Sans Flex","Helvetica Neue",Arial,sans-serif}
+.lg-w{display:none}
+:root[data-theme=dark] .lg-b{display:none}
+:root[data-theme=dark] .lg-w{display:inline}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .lg-b{display:none}:root:not([data-theme=light]) .lg-w{display:inline}}
+.cover .lg-b{display:inline!important}
+.side .lg-w{display:inline!important}
+footer{background:#000;color:#d9d9d9;font-size:14px}
+footer .lockup .word{font-size:26px;color:#fff}
+footer .lockup img{height:22px}
+@media(max-width:600px){
+table{font-size:13px}th,td{padding:6px 4px}
+.stack thead{display:none}.stack tr{display:grid;padding-block:10px;border-bottom:1px solid var(--rule)}
+.stack td{display:flex;justify-content:space-between;gap:12px;border:0;padding:3px 0;text-align:right}
+.stack td::before{content:attr(data-l);font-weight:700;text-align:left;flex:none;max-width:45%}
+.stack td.num{white-space:normal}
+.bar{grid-template-columns:6.5em minmax(0,1fr) 3em;font-size:14px}
+.lockup .word{font-size:28px}
+}
+.page{display:none}
+.page.on{display:block}
+.is-home .side,.is-home .pager,.is-home footer{display:none!important}
+.is-home .shell{display:block}
+.home-page.on{display:flex;min-height:100vh;background:var(--y);color:#000;align-items:center;padding:clamp(32px,6vw,96px) max(6vw,20px)}
+.home-inner{max-width:900px}
+.home-mark{width:clamp(72px,9vw,112px);height:auto;display:block;margin-bottom:clamp(32px,5vw,56px)}
+.home-lockup{display:flex;align-items:center;gap:clamp(14px,2vw,26px);flex-wrap:wrap}
+.home-lockup .word{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;letter-spacing:-.03em;line-height:1;font-size:clamp(48px,8vw,104px)}
+.home-lockup .x{font-size:clamp(28px,4vw,52px)}
+.home-lockup .grp{display:inline-flex;align-items:center;gap:inherit}
+.home-lockup img{height:clamp(38px,6vw,78px);width:auto}
+.home-page h1{margin-top:clamp(28px,4vw,48px);font-size:clamp(32px,4.4vw,52px)}
+.home-sub{font-size:18px;margin:12px 0 32px}
+.start{font:inherit;font-size:17px;font-weight:700;min-height:52px;padding:12px 26px;border:0;border-radius:4px;background:#000;color:#fff;cursor:pointer}
+.start:hover{background:#222}
+.start:focus-visible{outline:3px solid #000;outline-offset:3px}
+main{min-height:100vh;display:flex;flex-direction:column}
+.pages{flex:1}
+section.band{border-top:0}
+.acc{border-top:1px solid var(--rule);max-width:1080px}
+.acc:last-of-type{border-bottom:1px solid var(--rule)}
+.accs{margin-top:28px}
+.acc>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:56px;padding:12px 4px;font-family:Georgia,serif;font-size:20px;font-weight:700}
+.acc>summary::-webkit-details-marker{display:none}
+.acc>summary::after{content:"+";font-family:"Helvetica Neue",Arial,sans-serif;font-weight:400;font-size:26px;line-height:1;flex:none;width:36px;height:36px;display:grid;place-items:center;border-radius:50%;background:var(--y);color:#000}
+.acc[open]>summary::after{content:"–"}
+.acc>summary:hover::after{background:#000;color:var(--y)}
+.acc>summary:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.acc>div{padding:4px 4px 24px}
+.acc h4{margin:18px 0 6px;font-size:16px}
+.pager{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:24px max(5vw,16px) 40px;border-top:1px solid var(--rule)}
+.pager button{font:inherit;font-size:15px;cursor:pointer;min-height:48px;padding:10px 18px;border-radius:4px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);text-align:left;max-width:48%}
+.pager button.next{background:#000;color:#fff;border-color:#000;margin-left:auto;text-align:right}
+:root[data-theme=dark] .pager button.next{background:var(--y);color:#000;border-color:var(--y)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .pager button.next{background:var(--y);color:#000;border-color:var(--y)}}
+.pager button:hover{text-decoration:underline}
+.pager button:focus-visible{outline:2px solid var(--y);outline-offset:2px}
+.pager small{display:block;font-size:13px;opacity:.75}
+.pager [hidden]{display:none}
+.count{font-size:14px;color:var(--soft);margin:0 0 10px}
+.cover .count{color:#000;opacity:.7}
+</style>
+<script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
+</head>
+<body>
+<div class="shell">
+<aside class="side">
+  <a class="home" href="#home" aria-label="Back to the start"><svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" fill="#ffd200"/><polygon points="20,20 50,50 80,20 80,80 20,80" fill="#000"/></svg></a>
+  <div class="brand">
+    <div class="lockup"><span class="word">Mama</span><span class="x">×</span><img class="lg-w" src="data:image/png;base64,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" alt="Supa Fly"></div>
+    <div class="sub">Social media audit, Nov–Dec 2026</div>
+  </div>
+  <nav class="nav" id="nav" aria-label="Sections">
+    <a href="#summary">Summary</a>
+    <a href="#about">How this audit works</a>
+    <a href="#name">Name and handles</a>
+    <a href="#presence">Brand presence today</a>
+    <a href="#conversation">What customers say</a>
+    <a href="#competitors">Competitors</a>
+    <a href="#audience">Audience and platforms</a>
+    <a href="#market">Category and market</a>
+    <a href="#creators">Creators</a>
+    <a href="#readiness">Getting ready</a>
+    <a href="#baseline">Baselines and KPIs</a>
+    <a href="#opportunities">Opportunities</a>
+  </nav>
+  <div class="foot">Prepared by Mama for Supa Fly, a KNR Flatrock Group brand. Job SUP1001.</div>
+</aside>
+
+<main>
+<div class="pages">
+
+<!-- HOME -->
+<section class="page home-page" id="home" data-title="Home">
+ <div class="home-inner">
+  <svg class="home-mark" viewBox="0 0 100 100" aria-hidden="true"><polygon points="0,0 50,50 100,0 100,100 0,100" fill="#000"/></svg>
+  <div class="home-lockup"><span class="word">Mama</span><span class="grp"><span class="x">×</span><img src="data:image/png;base64,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" alt="Supa Fly"></span></div>
+  <h1>Social media audit</h1>
+  <p class="home-sub">Audit date: Nov–Dec 2026</p>
+  <button type="button" class="start" id="startBtn">Start the audit</button>
+ </div>
+</section>
+
+<!-- SUMMARY -->
+<header class="page band cover" id="summary" data-title="Summary">
+ <div class="wrap">
+  <p class="meta" style="margin:0">Summary</p>
+  <div class="cover-grid" style="margin-top:12px">
+   <div>
+    <h1>People trust Supa Fly. They just don't know its name yet.</h1>
+    <p class="lede" style="margin-top:18px">Customers rate the products well and keep buying them, but very few could tell you who made their power bank. Social is where we close that gap, and at the moment no competitor is really standing in the way.</p>
+    <ul class="short">
+     <li>997 Takealot reviews with an average of 4.4 stars. 68% of them are five stars.</li>
+     <li>Only 5.4% of those reviews mention the brand, and roughly half of them spell it "Superfly".</li>
+     <li>Competitors pay for reach, borrow it from creators or put their money into sales ads. Nobody has built a consistent South African brand voice on social.</li>
+     <li>The first two months are about awareness on Facebook, Instagram and TikTok, using the assets Supa Fly already has. Sales tracking comes later.</li>
+    </ul>
+   </div>
+   <div class="right">
+   <div class="chartcard">
+    <h3>Volkano leads brand search. Supa Fly barely shows up.</h3>
+    <p class="cap">Google Trends, South Africa, 5-year average interest (0–100), read from chart</p>
+    <div class="bars" id="searchBars"></div>
+    <p class="cap" style="margin:16px 0 0">This is our starting line. The spelling splits searches even further, Google already suggests "Superfly 10000mah powerbank".</p>
+   </div>
+   <div class="kpis">
+    <div class="kpi"><b>13+</b><span>retailers and networks stock Supa Fly</span></div>
+    <div class="kpi"><b>236</b><span>Supa Fly products on Takealot</span></div>
+    <div class="kpi"><b>0</b><span>active brand social channels today</span></div>
+    <div class="kpi"><b>2 months</b><span>of awareness-only content to start</span></div>
+   </div>
+   </div>
+  </div>
+ </div>
+</header>
+
+<!-- ABOUT -->
+<section class="page band" id="about" data-title="How this audit works"><div class="wrap">
+ <h2>How this audit works</h2>
+ <p class="point">Normally an audit looks at a brand's own pages. Supa Fly doesn't have active ones yet, so we looked at everything around the brand instead: retail, search, reviews and what the competition is doing on social.</p>
+ <div class="accs">
+  <details class="acc"><summary>What we looked at</summary><div>
+   <ul class="plain">
+    <li>Whether the name and handles are available</li>
+    <li>How the brand shows up in retail, search and on pack</li>
+    <li>What customers are already saying in reviews</li>
+    <li>Volkano, Gammatek, Astrum, SMD, Snug and Amplify, with Anker and UGREEN as a benchmark for good category content</li>
+    <li>Who buys Supa Fly and which platforms they use</li>
+    <li>Category demand, local creators, what we need to launch and where the numbers start</li>
+   </ul>
+  </div></details>
+  <details class="acc"><summary>A few things to keep in mind</summary><div>
+   <ul class="plain">
+    <li>Phase one is about awareness. We're not measuring sales yet, and without a website there'd be no clean way to track them anyway.</li>
+    <li>Some points are signals rather than facts. If we say a competitor post looks boosted, that's our read of the numbers. Only their ad account could confirm it.</li>
+    <li>Everything was captured during the Nov–Dec 2026 audit period, right in the middle of Black Friday, so follower counts and ads will have moved by the time you read this.</li>
+    <li>All prices are in rand.</li>
+   </ul>
+  </div></details>
+ </div>
+</div></section>
+
+<!-- NAME -->
+<section class="page band" id="name" data-title="Name and handles"><div class="wrap">
+ <h2>Pick one name and one handle before we post anything</h2>
+ <p class="point">Across retailers and reviews the brand shows up as Supa Fly, Supafly, Superfly and SF. If every new channel uses the same spelling, each post builds on the last one.</p>
+ <div class="note"><b>Our recommendation</b><p>Go with Supa Fly, the way it's written on the logo, everywhere: display names, bios and captions. Use @supaflysa as the handle on every platform. If Supa Fly plans to sell outside South Africa, @supaflytech is free everywhere too and won't date.</p></div>
+ <div class="accs">
+  <details class="acc"><summary>The Instagram account that already exists</summary><div>
+   <div class="scroll"><table>
+    <thead><tr><th>Account</th><th class="num">Posts</th><th class="num">Followers</th><th class="num">Following</th><th>Active</th></tr></thead>
+    <tbody><tr><td>@supaflyaccessories</td><td class="num">8</td><td class="num">11</td><td class="num">2</td><td>2 May 2025 to 30 June 2025</td></tr></tbody>
+   </table></div>
+   <p>It was set up last year and then went quiet. We'd keep it, since it already has a bit of history, and rename it to @supaflysa. The 8 old posts can be archived rather than deleted so the grid starts fresh.</p>
+  </div></details>
+  <details class="acc"><summary>Which handles are free</summary><div>
+   <div class="scroll"><table>
+    <thead><tr><th>Handle</th><th>Instagram</th><th>TikTok</th><th>Facebook</th><th>YouTube</th></tr></thead>
+    <tbody>
+     <tr><td>supafly</td><td>Taken (unrelated, empty)</td><td>Taken (no videos)</td><td>Taken (US artist)</td><td>Taken (gaming channel)</td></tr>
+     <tr><td><b>supaflysa</b></td><td><span class="tag g">Looks free</span></td><td><span class="tag g">Looks free</span></td><td><span class="tag g">Looks free</span></td><td><span class="tag g">Looks free</span></td></tr>
+     <tr><td>supaflytech</td><td><span class="tag g">Looks free</span></td><td><span class="tag g">Looks free</span></td><td><span class="tag g">Looks free</span></td><td><span class="tag g">Looks free</span></td></tr>
+     <tr><td>supafly.sa</td><td><span class="tag g">Looks free</span></td><td><span class="tag g">Looks free</span></td><td>Not checked</td><td>Not checked</td></tr>
+     <tr><td>supafly_sa</td><td>Taken (empty, called "Supafly Sa")</td><td>Not checked</td><td>Not checked</td><td>Not checked</td></tr>
+     <tr><td>supaflyofficial</td><td>Taken (empty)</td><td>Not checked</td><td>Not checked</td><td>Not checked</td></tr>
+     <tr><td>supaflyza</td><td>Taken (personal)</td><td>Not checked</td><td>Not checked</td><td>Not checked</td></tr>
+    </tbody>
+   </table></div>
+   <p class="small">"Looks free" means the profile page doesn't exist. A deactivated handle looks the same, so we'll only know for sure once we register it.</p>
+  </div></details>
+  <details class="acc"><summary>Other name things to check</summary><div>
+   <ul class="plain">
+    <li>There's an empty Instagram account called "Supafly Sa" (@supafly_sa). It might belong to someone at Supa Fly, so it's worth asking before we treat it as a stranger.</li>
+    <li>Hashtags don't do much for reach anymore, but they're still handy on Instagram for grouping posts by category and making them easy to find, especially for competitions. #supafly is mostly music artists, so Supa Fly needs its own, something like #SupaFlySA.</li>
+    <li>SupaFly Print (vehicle wraps, owns supafly.co.za) and SupaFly FPV (drone gear) use almost the same name. A trademark check in Supa Fly's category would be sensible.</li>
+    <li>If a landing page is on the cards, check supaflysa.co.za and supaflytech.co.za on the .co.za registry.</li>
+   </ul>
+  </div></details>
+ </div>
+</div></section>
+
+<!-- PRESENCE -->
+<section class="page band" id="presence" data-title="Brand presence today"><div class="wrap">
+ <h2>Right now, retailers tell the Supa Fly story</h2>
+ <p class="point">Supa Fly is in more kinds of stores than most local competitors. The catch is that every retailer describes it differently and there's no brand channel pulling it together.</p>
+ <div class="note"><b>What this means</b><p>Social will be Supa Fly's first channel that it owns. With no website, people who get interested need to find the profile and a clear list of where to buy. On Takealot, Volkano products show up under "you might also like" right next to Supa Fly, so people need to remember the name before they get to the shelf.</p></div>
+ <div class="accs">
+  <details class="acc"><summary>Channels Supa Fly owns</summary><div>
+   <div class="scroll"><table class="stack">
+    <thead><tr><th>Channel</th><th>Status</th></tr></thead>
+    <tbody>
+     <tr><td>Website</td><td>None. Searching the brand only brings up retailers.</td></tr>
+     <tr><td>Social</td><td>One quiet Instagram account. Nothing on Facebook or TikTok.</td></tr>
+     <tr><td>Email or customer list</td><td>Nothing we could see.</td></tr>
+     <tr><td>Warranty or support page</td><td>None found. Volkano links to warranty registration from its profile.</td></tr>
+    </tbody>
+   </table></div>
+  </div></details>
+  <details class="acc"><summary>Where Supa Fly is sold</summary><div>
+   <div class="scroll"><table class="stack">
+    <thead><tr><th>Channel</th><th>Where</th><th>How Supa Fly comes across</th></tr></thead>
+    <tbody>
+     <tr><td>Online marketplaces</td><td>Takealot, Amazon.co.za</td><td>Takealot has 236 Supa Fly results and the best reviews. Amazon.co.za runs Shopping ads, like a power bank at R99 (was R249).</td></tr>
+     <tr><td>Grocery and pharmacy</td><td>Pick n Pay, Clicks</td><td>Pick n Pay mostly sells gift bundles at R249–R299. Clicks has a wide range listed as "Supafly".</td></tr>
+     <tr><td>Fashion and general retail</td><td>Bash (TFG), Ackermans, Builders, Kloppers</td><td>Bash has a 42-item brand page with a streetwear angle. Builders sells the Tech Gear Bundle.</td></tr>
+     <tr><td>Wholesale</td><td>Makro</td><td>A brand page, backed by Makro's own Google Shopping ads.</td></tr>
+     <tr><td>Mobile networks</td><td>Vodacom, MTN Deals</td><td>Selected products sold with phones and contracts.</td></tr>
+     <tr><td>Electronics and cellular</td><td>Technomobi, Incredible, MacShack, MHC World</td><td>Technomobi carries the full collection and features Supa Fly in its Black Friday posts.</td></tr>
+    </tbody>
+   </table></div>
+  </div></details>
+  <details class="acc"><summary>Packaging</summary><div>
+   <p>The core boxes are white with a blue side panel and a hang tab for peg walls in pharmacies and grocery stores. Specs like "10 000mAh" and "30W" take the most space, which makes it easy for shoppers to compare. Each series has its own colour (blue core range, yellow and black Circuit Series, red Power Series) and the products carry either the SF badge or the SUPA FLY wordmark.</p>
+   <p>The box does its job on the shelf. Social can do the part a box has no room for, giving the brand a personality people remember.</p>
+  </div></details>
+  <details class="acc"><summary>Search</summary><div>
+   <ul class="plain">
+    <li>Google's AI overview gets it right: a South African tech and mobile accessories brand. Good start.</li>
+    <li>Every organic result is a retailer (Bash, Technomobi, Kloppers, Makro, Vodacom, MTN Deals, MHC, Pick n Pay).</li>
+    <li>Makro, Amazon.co.za and Incredible already pay for Google Shopping ads on Supa Fly products, so the brand gets search visibility on other people's budgets.</li>
+    <li>The name is shared with a music artist, the 2018 film <i>SuperFly</i> and SupaFly FPV, which muddies results.</li>
+   </ul>
+  </div></details>
+ </div>
+</div></section>
+
+<!-- CONVERSATION -->
+<section class="page band" id="conversation" data-title="What customers say"><div class="wrap">
+ <h2>Customers like the products. They just don't say the name.</h2>
+ <p class="point">We went through all 997 Takealot reviews across 16 Supa Fly products, from 2019 to 2026. People are happy. They talk about what the product does, not who made it.</p>
+ <div class="two">
+  <div>
+   <h3 style="margin-top:0">Star ratings</h3>
+   <div class="bars panelbars" id="starBars"></div>
+   <p class="small" style="margin-top:12px">Average 4.42 from 997 reviews. The 12000mAh power bank on its own has 655 reviews averaging 4.5.</p>
+  </div>
+  <div>
+   <h3 style="margin-top:0">Who mentions the brand</h3>
+   <p>Just 54 of 997 reviews (5.4%) name the brand, and about half of those write "Superfly". Even repeat buyers get it wrong.</p>
+   <p>One reviewer asked Takealot to fix the listing because "it is not Superfly, but SupaFly". She buys Supa Fly for her clients on purpose. So there are already people out there looking for the brand by name.</p>
+  </div>
+ </div>
+ <div class="accs">
+  <details class="acc"><summary>What customers like most</summary><div>
+   <div class="scroll"><table class="stack">
+    <thead><tr><th>Theme</th><th class="num">Mentions</th><th>In their words</th></tr></thead>
+    <tbody>
+     <tr><td>Capacity and number of charges</td><td class="num">178</td><td>Mostly positive</td></tr>
+     <tr><td>Charging speed</td><td class="num">173</td><td>Almost all positive</td></tr>
+     <tr><td>Value for money</td><td class="num">147</td><td>"Good price and good quality"</td></tr>
+     <tr><td>Size and portability</td><td class="num">101</td><td>"Small enough to pack easily"</td></tr>
+     <tr><td>Build quality</td><td class="num">95</td><td>Mostly positive</td></tr>
+     <tr><td>Backup power during outages</td><td class="num">69</td><td>"A real life saver"</td></tr>
+     <tr><td>Charging two devices at once</td><td class="num">46</td><td>People love it</td></tr>
+     <tr><td>Gifting</td><td class="num">20</td><td>"Bought it for my sister as a gift, my dad ended up using it"</td></tr>
+     <tr><td>Buying again</td><td class="num">17</td><td>Second and third purchases of the same thing</td></tr>
+    </tbody>
+   </table></div>
+   <p>Customers have basically picked the content themes for us. Their own words will make better captions than anything we could write from scratch.</p>
+  </div></details>
+  <details class="acc"><summary>One product to be careful with</summary><div>
+   <p>Most of this year's lower ratings come from one entry-level product, the 5000mAh LED Display Power Bank (25 of 31 low ratings in 2026). Reading the comments, it's mostly about expectations. A 5000mAh battery gives you about one full phone charge, and some buyers expected more. The rest of the range, wall chargers included, is sitting close to five stars this year.</p>
+   <p>Once social opens up new comment sections, this matters. We'd lead with the higher-capacity products and post simple "how many charges will I get?" content so people pick the right one.</p>
+  </div></details>
+  <details class="acc"><summary>What retailers are already posting</summary><div>
+   <p>We couldn't find any customer posts about Supa Fly on Instagram or TikTok. Retailers are posting though:</p>
+   <div class="scroll"><table class="stack">
+    <thead><tr><th>Source</th><th>What they post</th></tr></thead>
+    <tbody>
+     <tr><td>Technomobi (Instagram)</td><td>Supa Fly in its "Blackout Month" Black Friday posts, like the 20 000mAh 65W power bank at R499 (was R899)</td></tr>
+     <tr><td>Dunns Mobile (Facebook)</td><td>"Introducing the NEW Supa Fly 10000mAh Powerbank!"</td></tr>
+     <tr><td>Cellular stores incl. Overcell Gansbaai (Facebook)</td><td>"Introducing the NEW Supa Fly Smart Audio Glasses" videos</td></tr>
+     <tr><td>The Ridge @ Shallcross, Durban (Instagram)</td><td>A Supa Fly watch in a mall promotion</td></tr>
+     <tr><td>Makro, Amazon.co.za, Incredible</td><td>Paid Google Shopping ads</td></tr>
+     <tr><td>MTN, PayJoy, Value City and Exclusive Wholesalers</td><td>Meta ads that match "Supa Fly", probably via product catalogues</td></tr>
+    </tbody>
+   </table></div>
+   <ul class="plain">
+    <li>A few stores use the exact same "Introducing the NEW Supa Fly…" line, which makes us think launch copy and video already go out to retailers. We'd love to use those.</li>
+    <li>Retailers can't tag Supa Fly yet. Once the pages are live, every retailer post can point back to the brand.</li>
+    <li>Most retail content shows Supa Fly on special. Social can give people a reason to like the brand beyond the price.</li>
+   </ul>
+  </div></details>
+ </div>
+</div></section>
+
+<!-- COMPETITORS -->
+<section class="page band" id="competitors" data-title="Competitors"><div class="wrap">
+ <h2>Competitors pay for reach or borrow it</h2>
+ <p class="point">Volkano spends on ads, Gammatek leans on creators who mostly promote other brands, and Astrum puts its budget into sales. Nobody owns the organic, brand-led spot, and that's where we want Supa Fly.</p>
+ <div class="fig" id="mapFig" role="img" aria-label="Positioning map: competitors by reliance on paid reach and organic engagement, with the open space for Supa Fly marked"><svg id="mapSvg"></svg></div>
+ <p class="small">This is our read of the signals in the audit, not a measured score.</p>
+ <div class="scroll"><table class="stack">
+  <thead><tr><th>Brand</th><th>How it plays social</th><th class="num">Instagram followers</th><th>How much it matters to Supa Fly</th></tr></thead>
+  <tbody>
+   <tr><td>Volkano (SMD Technologies)</td><td>Heavy Meta spend behind hero products</td><td class="num">44.2K</td><td><span class="tag w">High</span></td></tr>
+   <tr><td>Gammatek</td><td>Creator collabs, mostly for brands it distributes</td><td class="num">9.6K</td><td><span class="tag w">Medium</span></td></tr>
+   <tr><td>Astrum</td><td>Small organic following, sales ads</td><td class="num">10.7K</td><td><span class="tag m">Medium-low</span></td></tr>
+   <tr><td>Snug and Amplify</td><td>No brand pages, they compete on shelf price</td><td class="num">–</td><td><span class="tag m">Low on social</span></td></tr>
+  </tbody>
+ </table></div>
+ <div class="accs">
+  <details class="acc"><summary>Volkano on Instagram</summary><div>
+   <p>Volkano (owned by SMD Technologies) is the brand Supa Fly sees as its biggest competitor, and it's way out in front on brand search. 44.2K Instagram followers.</p>
+   <div class="scroll"><table>
+    <thead><tr><th>Post</th><th>Product</th><th class="num">Views</th><th class="num">Likes</th><th class="num">Comments</th><th class="num">Shares</th></tr></thead>
+    <tbody>
+     <tr><td>Eclipse ANC earbuds reel</td><td>Eclipse TWS</td><td class="num">251K</td><td class="num">7.1K</td><td class="num">73</td><td class="num">19</td></tr>
+     <tr><td>Smart Band reel</td><td>Smart Bands</td><td class="num">243K</td><td class="num">3.8K</td><td class="num">28</td><td class="num">50</td></tr>
+     <tr><td>"Name our speaker" contest</td><td>New speaker</td><td class="num">243K</td><td class="num">4.8K</td><td class="num">1.1K</td><td class="num">174</td></tr>
+     <tr><td>Cyber party speaker reel</td><td>Cyber Dual 8"</td><td class="num">144K</td><td class="num">2.6K</td><td class="num">47</td><td class="num">22</td></tr>
+     <tr><td>Comic Con reel</td><td>Event</td><td class="num">139K</td><td class="num">12.4K</td><td class="num">14</td><td class="num">11</td></tr>
+     <tr><td>Ayla smartwatch reel</td><td>Ayla Collection</td><td class="num">101K</td><td class="num">6.3K</td><td class="num">15</td><td class="num">3</td></tr>
+     <tr><td>TagTrace giveaway (static)</td><td>TagTrace</td><td class="num">–</td><td class="num">746</td><td class="num">1.2K</td><td class="num">119</td></tr>
+     <tr><td>A typical reel</td><td>Various</td><td class="num">1.5K–9K</td><td class="num">80–500</td><td class="num">5–20</td><td class="num">5–20</td></tr>
+    </tbody>
+   </table></div>
+   <h4>Why we think a lot of this is paid</h4>
+   <ul class="plain">
+    <li>Five reels hit 100K–251K views when a normal one gets 1.5K–9K. Four of them were polished product reels from late September to October, which looks like a planned ad push.</li>
+    <li>Lots of likes, hardly any shares or comments. The Ayla reel got 101K views and 3 shares. Shares are the best sign something spread on its own.</li>
+    <li>Most comments are tagged "from Facebook", which fits ads running on both platforms.</li>
+    <li>Several of the top reels carry Instagram's "AI content" label.</li>
+   </ul>
+   <p class="small">These are signals. Only Volkano's ad account could confirm them.</p>
+  </div></details>
+  <details class="acc"><summary>Volkano on TikTok</summary><div>
+   <p>116.7K followers.</p>
+   <div class="scroll"><table>
+    <thead><tr><th>Video</th><th>Date</th><th class="num">Views</th><th class="num">Likes</th><th class="num">Like rate</th></tr></thead>
+    <tbody>
+     <tr><td>10 Years of Volkano</td><td>Dec 2023</td><td class="num">622.4K</td><td class="num">3,374</td><td class="num">0.5%</td></tr>
+     <tr><td>Competition</td><td>Jan 2024</td><td class="num">334.4K</td><td class="num">1,489</td><td class="num">0.4%</td></tr>
+     <tr><td>"Bold colours" product</td><td>Feb 2025</td><td class="num">216.5K</td><td class="num">3,835</td><td class="num">1.8%</td></tr>
+     <tr><td>"Name our speaker" contest</td><td>Aug 2026</td><td class="num">127.5K</td><td class="num">2,933</td><td class="num">2.3%</td></tr>
+     <tr><td>Street mystery box</td><td>Aug 2025</td><td class="num">73.6K</td><td class="num">1,893</td><td class="num">2.6%</td></tr>
+     <tr><td>"It's all about balance" (humour)</td><td>Jul 2026</td><td class="num">54.1K</td><td class="num">4,484</td><td class="num">8.3%</td></tr>
+    </tbody>
+   </table></div>
+   <p>In 2024 and 2025 Volkano made proper TikTok content: trend dances, a #HeadphoneChallenge, street mystery boxes, rugby tie-ins. Around mid-2026 it started reposting Instagram content instead, and views dropped off. Its funny "balance" video got an 8.3% like rate, the best organic result on the account. They've stopped making that kind of thing.</p>
+  </div></details>
+  <details class="acc"><summary>Volkano's ads right now</summary><div>
+   <div class="scroll"><table class="stack">
+    <thead><tr><th>Ad</th><th>Started</th><th>Goal</th><th>Sends people to</th></tr></thead>
+    <tbody>
+     <tr><td>"Your mission is waiting…" carousel</td><td>20 Nov</td><td>Engagement</td><td>Instagram profile</td></tr>
+     <tr><td>Horizon gimbal reel</td><td>20 Nov</td><td>Engagement</td><td>Instagram profile</td></tr>
+     <tr><td>Fizz Kids Smartwatch, 10% off (FIZZ10)</td><td>20 Nov</td><td>Sales</td><td>Online shop</td></tr>
+     <tr><td>Ayla smartwatch, 10% off (AYLA10)</td><td>20 Nov</td><td>Sales</td><td>Online shop</td></tr>
+     <tr><td>Ignite Ultra "gift shortlist"</td><td>23 Nov</td><td>Engagement</td><td>Instagram profile</td></tr>
+     <tr><td>"Cape Town and KZN…" summer speaker</td><td>23 Nov</td><td>Engagement, regional</td><td>Instagram profile</td></tr>
+     <tr><td>Urban Playground</td><td>23 Nov</td><td>Engagement</td><td>Instagram profile</td></tr>
+    </tbody>
+   </table></div>
+   <p>Six of the nine ads running send people to the Instagram profile, not the shop. They're also targeting by province, in this case the coast over the summer holidays. South African ads vanish from Meta's library once they stop, so we can't see what they spent before.</p>
+  </div></details>
+  <details class="acc"><summary>Volkano SWOT</summary><div>
+   <div class="swot">
+    <div><h4>Strengths</h4><ul><li>Steady paid support behind its hero products</li><li>Comment contests work. The speaker-naming post got the most organic shares</li><li>Shows up at events like Comic Con Africa, Tuks Night Race and Ride Joburg</li><li>Sold at HiFi Corp and in its own online shop</li></ul></div>
+    <div><h4>Weaknesses</h4><ul><li>Typical reels only reach 3–20% of followers</li><li>No prices in captions, so "How much?" keeps coming up</li><li>No highlights for prices, stockists or warranty</li><li>Jumps between gaming, cycling, fashion and kids, so there's no clear identity</li></ul></div>
+    <div><h4>Openings for Supa Fly</h4><ul><li>Make content people share and save: real demos, comparisons, "is it worth it"</li><li>Put prices and where to buy right up front</li><li>Pick up the TikTok formats Volkano dropped</li></ul></div>
+    <div><h4>Threats</h4><ul><li>Can outspend Supa Fly, especially over festive</li><li>Events and sport deals keep it visible offline</li><li>Could go back to its 2024 TikTok style pretty quickly</li></ul></div>
+   </div>
+  </div></details>
+  <details class="acc"><summary>Gammatek</summary><div>
+   <div class="scroll"><table class="stack">
+    <thead><tr><th>Channel</th><th>Size</th><th>Notes</th></tr></thead>
+    <tbody>
+     <tr><td>Instagram (@gammateksa)</td><td>9,639 followers, 1,036 posts</td><td>Highlights by category: Funko Pop, Accessories, Mobile, Audio, Chargers, Robotics</td></tr>
+     <tr><td>Facebook</td><td>55K followers</td><td>Recent posts get about 5 reactions</td></tr>
+     <tr><td>Meta ads</td><td>None active</td><td>Nothing running in South Africa</td></tr>
+    </tbody>
+   </table></div>
+   <p>Gammatek's best stuff comes from creators. @ntobekoo_cele's UGREEN power bank reels (a Joburg weekend, a braai before rugby) got up to 24.8K views and a 7% like rate, the best engagement we saw anywhere in this audit. There's no sign of boosting. The reach comes from the creators' own followers.</p>
+   <div class="swot">
+    <div><h4>Strengths</h4><ul><li>Creator content in real South African settings</li><li>Collabs reach way past its own followers for free</li><li>Category highlights work like a shop window</li></ul></div>
+    <div><h4>Weaknesses</h4><ul><li>Its best content builds UGREEN, not Gammatek</li><li>A messy grid of collectibles, kids' stuff and power banks</li><li>"Where can I buy this?" comments go unanswered</li></ul></div>
+    <div><h4>Openings for Supa Fly</h4><ul><li>Borrow the everyday South African moment format, with Supa Fly at the centre</li><li>Always answer "where can I buy"</li><li>Own charging and power, because no local brand does</li></ul></div>
+    <div><h4>Threats</h4><ul><li>Has creators ready to go for any brand it distributes</li><li>UGREEN and Anker are building trust in power banks locally</li></ul></div>
+   </div>
+  </div></details>
+  <details class="acc"><summary>Astrum</summary><div>
+   <div class="scroll"><table class="stack">
+    <thead><tr><th>Channel</th><th>Size</th><th>Engagement</th></tr></thead>
+    <tbody>
+     <tr><td>Instagram (@astrumafrica)</td><td>10.7K followers, 1,298 posts</td><td>Reels mostly 150–1.5K views, 13–90 likes</td></tr>
+     <tr><td>Facebook</td><td>5.2K followers</td><td>Not looked at closely</td></tr>
+     <tr><td>TikTok (@itsastrum)</td><td>407 followers</td><td>Videos get 77–1.5K views</td></tr>
+     <tr><td>Meta ads</td><td>5 active, from 19–21 Nov</td><td>Black Friday deals to Takealot and Amazon.co.za, a promo code, a giveaway</td></tr>
+    </tbody>
+   </table></div>
+   <p>Astrum's best post is a giveaway (426 likes, 602 comments, 73 shares) where you had to follow both accounts. Office humour ("POV: quick content shoot…") does better than its product posts.</p>
+   <div class="swot">
+    <div><h4>Strengths</h4><ul><li>A clean, trackable sales funnel for Black Friday</li><li>Sells on both Takealot and Amazon.co.za</li><li>Team humour gives the brand a human face</li></ul></div>
+    <div><h4>Weaknesses</h4><ul><li>Very low reach on product posts</li><li>TikTok has barely started and the bio talks to businesses</li><li>Two Instagram accounts split the brand</li></ul></div>
+    <div><h4>Openings for Supa Fly</h4><ul><li>TikTok is wide open for a local accessories brand that shows up consistently</li><li>Giveaways work for everyone. Make the entry about the product, like "show us your dead-battery moment"</li><li>Office and behind-the-scenes posts are cheap and they work</li></ul></div>
+    <div><h4>Threats</h4><ul><li>Chases the same online shoppers over festive</li><li>Overlapping range (power banks, earbuds, cables) from R72</li></ul></div>
+   </div>
+  </div></details>
+  <details class="acc"><summary>SMD, Snug and Amplify</summary><div>
+   <ul class="plain">
+    <li>SMD Technologies runs business-facing pages (1.6K Facebook followers, LinkedIn and YouTube, no Instagram). Volkano is its consumer brand, which we've covered above. SMD also makes private-label products for retailers, so store house brands could end up on the same shelves.</li>
+    <li>Snug and Amplify don't run their own social pages. They only show up through retailers and resellers, and they compete on price in store.</li>
+    <li>Pineapple, Melon and Naked came up in our first meeting as tone inspiration. We'll use them when we build the tone of voice in the strategy.</li>
+   </ul>
+  </div></details>
+  <details class="acc"><summary>What good category content looks like</summary><div>
+   <div class="two">
+    <p><b>Anker South Africa</b> (@ankerofficial.za, 11.9K followers). Unboosted reels get 400–2K views. The big ones are paid partnerships with local personalities: Mrs Jojo Robinson's Black November reel got 230K views and Kevin McLennan's eufy reel 185K. The ads go straight to Takealot.</p>
+    <p><b>UGREEN global</b> (@ugreen_official, 447K followers). Hero product demos get millions of views. Captions stick to one product and one benefit with a link. Recent reels still only get 1–2% like rates, so even the global brands rely on paid reach.</p>
+   </div>
+   <p>The content that does well has a few things in common. It shows one product fixing one problem in real life, not on a white background. It's set in everyday South African moments, which matters more than big production. It shows proof on screen, like a charge test or how many charges you get. It ties into retail moments with a clear place to buy. And the humour is the kind you recognise from your own life.</p>
+  </div></details>
+ </div>
+</div></section>
+
+<!-- AUDIENCE -->
+<section class="page band" id="audience" data-title="Audience and platforms"><div class="wrap">
+ <h2>Supa Fly sells to the mass market, and so do Facebook and TikTok</h2>
+ <p class="point">Instagram reaches about 18% of South African adults. Facebook and TikTok reach over 60%. Every competitor treats Instagram as home base, which leaves the bigger platforms less crowded.</p>
+ <div class="two">
+  <div class="bars panelbars" id="reachBars"></div>
+  <div>
+   <ul class="plain">
+    <li>TikTok is growing fastest (+33% year on year) and leans male (61%). Instagram leans female (55%) and young, mostly 18–24.</li>
+    <li>Facebook is an even gender split across all ages, which fits everyday and gift buyers.</li>
+    <li>WhatsApp is almost certainly the most used platform, it just doesn't publish reach numbers. The WhatsApp assets in our scope get Supa Fly into family groups.</li>
+   </ul>
+  </div>
+ </div>
+ <p class="small">Ad reach in millions. DataReportal Digital 2026: South Africa (late-2025 data), age split from NapoleonCat, October 2026. LinkedIn is members. Good for comparing platforms, not exact headcounts.</p>
+ <div class="accs">
+  <details class="acc"><summary>Who buys Supa Fly</summary><div>
+   <p>These groups come from where Supa Fly is sold, what it costs and what reviewers say. They're solid guesses. Sales data by channel would confirm them.</p>
+   <div class="scroll"><table class="stack">
+    <thead><tr><th>Group</th><th>Why we think so</th><th>Where they buy</th><th class="num">Price range</th><th>Main platforms</th></tr></thead>
+    <tbody>
+     <tr><td>Everyday essentials buyers</td><td>Grocery and pharmacy stockists, families and older users in reviews</td><td>Pick n Pay, Clicks</td><td class="num">R99–R299</td><td>Facebook, WhatsApp, TikTok</td></tr>
+     <tr><td>Online bargain hunters</td><td>997 Takealot reviews, value and specs come up most</td><td>Takealot, Amazon.co.za, Makro</td><td class="num">R99–R499</td><td>YouTube, TikTok, Google Shopping</td></tr>
+     <tr><td>Gift buyers</td><td>Gift bundles at Pick n Pay, 20 reviews mention gifts</td><td>Pick n Pay, Clicks</td><td class="num">R249–R299</td><td>Facebook, Instagram</td></tr>
+     <tr><td>New phone buyers</td><td>Sold through Vodacom, MTN Deals and cellular stores</td><td>Network and cellular stores</td><td class="num">Add-on</td><td>TikTok, Facebook, retailer pages</td></tr>
+     <tr><td>Young, style-led buyers</td><td>Bash brand page, cases, smartwatches, audio glasses</td><td>Bash, cellular stores</td><td class="num">R249–R999</td><td>TikTok, Instagram</td></tr>
+     <tr><td>Corporate gifting</td><td>Promo-gift resellers, a reviewer buying "for my clients"</td><td>Promotional resellers</td><td class="num">Bulk</td><td>LinkedIn</td></tr>
+    </tbody>
+   </table></div>
+   <p class="small">The first two groups probably make up most of the volume. The style angle comes from how Bash positions the brand rather than from reviews, so we'd test it before leaning on it.</p>
+  </div></details>
+  <details class="acc"><summary>How we can confirm these groups</summary><div>
+   <ul class="plain">
+    <li>Sales by retailer and category for the last 12 months</li>
+    <li>Shopper insights from Clicks ClubCard or Pick n Pay Smart Shopper, if the account managers can get them</li>
+    <li>A quick chat with the sales team about best sellers and busy seasons</li>
+    <li>Later on, a QR code on pack that leads to a short survey</li>
+   </ul>
+  </div></details>
+ </div>
+</div></section>
+
+<!-- MARKET -->
+<section class="page band" id="market" data-title="Category and market"><div class="wrap">
+ <h2>People still want power banks, now for everyday life</h2>
+ <p class="point">Search interest in power banks has held steady and is still climbing. People buy them for travel, the commute and long days out, and that's where we'll point the content.</p>
+ <div class="note"><b>What this means</b><ul>
+  <li>We'll lead with travel, the commute, festivals, long days out, desk setups and fast charging.</li>
+  <li>Every category peaks in November and December. Launching now catches the most interest of the year, and also the most competitor ad spend.</li>
+  <li>Smartwatches get the most search interest of anything Supa Fly sells, which is a good case for bringing in the SF Fit range after the Blue Range.</li>
+  <li>On brand search, Volkano is about level with everyone else combined (see the Summary page). Supa Fly is close to zero, so there's only one way to go.</li>
+ </ul></div>
+ <div class="accs">
+  <details class="acc"><summary>Keywords we're prioritising</summary><div>
+   <p>We'll write captions, on-screen text and profile bios around the way people actually search, so posts can show up in Google as well as on the platforms.</p>
+   <ul class="plain">
+    <li>Everyday use: "how to fast charge iPhone safely", "must have car tech accessories", "desk setup charging station ideas"</li>
+    <li>Audio and wearables: "affordable noise cancelling earbuds SA", "true wireless earbuds South Africa", "best budget smartwatch with voice assistant"</li>
+    <li>Products by name: "65W GaN fast charger USB-C", "Supa Fly power bank unboxing", "Supa Fly Superpods review"</li>
+    <li>Finding the brand: "where to buy Supa Fly in South Africa", "is Supa Fly a good brand", "tech accessories South Africa"</li>
+   </ul>
+   <p class="small">A side note: load-shedding still comes up in older reviews, but Eskom announced the end of the crisis in February 2026 and searches for it have mostly disappeared. Backup power can stay in the mix as a smaller message.</p>
+  </div></details>
+  <details class="acc"><summary>What people search for</summary><div>
+   <div class="scroll"><table class="stack">
+    <thead><tr><th>Search term</th><th>Last five years</th><th>When it peaks</th></tr></thead>
+    <tbody>
+     <tr><td>Smart watch</td><td>Highest of the four</td><td>Nov–Dec</td></tr>
+     <tr><td>Power bank</td><td>Steady, going up in 2025–26</td><td>Nov–Dec</td></tr>
+     <tr><td>Earbuds</td><td>Steady, slightly up</td><td>Nov–Dec</td></tr>
+     <tr><td>Phone charger</td><td>Low, people search for specific products instead</td><td>–</td></tr>
+    </tbody>
+   </table></div>
+   <p class="small">Google Trends, South Africa, relative interest read from charts.</p>
+  </div></details>
+  <details class="acc"><summary>Market size</summary><div>
+   <p>There are market reports on South African mobile accessories, but they're behind paywalls, so we haven't quoted numbers we couldn't check. If Supa Fly or KNR has Euromonitor access, that would be the best source.</p>
+  </div></details>
+ </div>
+</div></section>
+
+<!-- CREATORS -->
+<section class="page band" id="creators" data-title="Creators"><div class="wrap">
+ <h2>Creators, an option for later</h2>
+ <p class="point">This is for down the line. Here's who South African accessories brands work with and how it's going, so Supa Fly can decide later whether creators are worth it.</p>
+ <div class="note"><b>What we noticed</b><ul>
+  <li>Competitors mostly use lifestyle micro-creators on gifted or once-off deals, and engagement is low.</li>
+  <li>What works best is everyday South African life with a product fixing a real problem.</li>
+  <li>No local creator owns charging and power yet. Nobody's doing "what mAh do I need" or proper charge tests.</li>
+  <li>Before shortlisting anyone we'd check for competitor exclusivity, ask for 90-day media kits and stay away from accounts run for kids.</li>
+ </ul></div>
+ <div class="accs">
+  <details class="acc"><summary>Creators already working with competitors</summary><div>
+   <div class="scroll"><table class="stack">
+    <thead><tr><th>Creator</th><th>Platform and size</th><th>Content</th><th>Worked with</th><th>What we saw</th></tr></thead>
+    <tbody>
+     <tr><td>@ntobekoo_cele</td><td>Instagram 102K</td><td>Everyday SA life</td><td>Gammatek (UGREEN)</td><td>24.8K views, 1.8K likes, 7% like rate</td></tr>
+     <tr><td>@mrs.jojo.robinson</td><td>Instagram 316K</td><td>Reality TV, family</td><td>Anker SA (paid)</td><td>230K views, 4.2K likes, 1.8% like rate</td></tr>
+     <tr><td>@kevinmclennanza</td><td>Instagram 31.2K, TikTok 160K</td><td>Shopping, travel, tech</td><td>Anker SA (paid, eufy)</td><td>185K views</td></tr>
+     <tr><td>@_homewithjay</td><td>Instagram 89.4K, TikTok 115K</td><td>Home, lifestyle</td><td>Volkano (gifted)</td><td>9.8K views, 46 likes</td></tr>
+     <tr><td>@jordan.fortuin</td><td>Instagram 59.5K</td><td>Gaming, art</td><td>Astrum (paid)</td><td>6K views, 80 likes</td></tr>
+     <tr><td>@kagisotech1</td><td>TikTok 30K+</td><td>Tech</td><td>Astrum</td><td>TikTok not checked</td></tr>
+     <tr><td>@jordan_boshoff</td><td>Instagram 6.4K</td><td>Mountain biking</td><td>Volkano (giveaway)</td><td>186 likes, 24 comments</td></tr>
+    </tbody>
+   </table></div>
+  </div></details>
+  <details class="acc"><summary>Tech creators nobody has signed yet</summary><div>
+   <div class="scroll"><table class="stack">
+    <thead><tr><th>Creator</th><th>Platform and size</th><th>Content</th><th>Fit</th></tr></thead>
+    <tbody>
+     <tr><td>@tyron_tech</td><td>Instagram 149K, TikTok 700K</td><td>Phone tips and settings</td><td>Strong. Reels get 115K–271K views with lots of shares and saves</td></tr>
+     <tr><td>TechNick</td><td>YouTube 489K</td><td>Phone reviews, battery tests</td><td>Strong for credibility, but we'd want his audience stats first</td></tr>
+     <tr><td>@thatorampedi</td><td>Instagram 118K</td><td>Tech, lifestyle</td><td>Possible, 3.1% engagement</td></tr>
+     <tr><td>@phozieque</td><td>Instagram 96K</td><td>Fashion, beauty, women in tech</td><td>Possible for SF Fit, 2.7% engagement</td></tr>
+    </tbody>
+   </table></div>
+   <p class="small">Engagement numbers come from single posts, not averages. TikTok needs a logged-in search to map properly, so that's the next step if creators become a priority.</p>
+  </div></details>
+ </div>
+</div></section>
+
+<!-- READINESS -->
+<section class="page band" id="readiness" data-title="Getting ready"><div class="wrap">
+ <h2>What we need to get going</h2>
+ <p class="point">For the first two months we're working with photography and video Supa Fly already has, no shoots. Supa Fly's team will sign off content until we've all settled into the voice.</p>
+ <div class="scroll"><table class="stack">
+  <thead><tr><th>Item</th><th>Status</th><th>What's needed</th></tr></thead>
+  <tbody>
+   <tr><td>Official spelling</td><td><span class="tag w">Decision</span></td><td>Confirm "Supa Fly" for all names and copy</td></tr>
+   <tr><td>Handles</td><td><span class="tag w">Decision</span></td><td>OK to rename @supaflyaccessories to @supaflysa and grab it on Facebook, TikTok and YouTube</td></tr>
+   <tr><td>Meta Business Suite</td><td><span class="tag m">In progress</span></td><td>Mama sets it up, Supa Fly gives admin access</td></tr>
+   <tr><td>Photo and video library</td><td><span class="tag w">From Supa Fly</span></td><td>Product, lifestyle and launch assets, including any videos sent to retailers</td></tr>
+   <tr><td>Launch dates</td><td><span class="tag w">From Supa Fly</span></td><td>Dates for the nine new-year launches</td></tr>
+   <tr><td>Stockist list</td><td><span class="tag w">From Supa Fly</span></td><td>Confirmed retailers and ranges for a "Where to buy" highlight</td></tr>
+   <tr><td>Warranty and support</td><td><span class="tag w">From Supa Fly</span></td><td>Warranty terms and where customers can ask questions</td></tr>
+   <tr><td>Approvals</td><td><span class="tag g">Agreed</span></td><td>Supa Fly's team approves content in phase one</td></tr>
+  </tbody>
+ </table></div>
+ <div class="accs">
+  <details class="acc"><summary>What we agreed in the first meeting</summary><div>
+   <p>The brand comes first. People need to know the name and trust it. Next is the Blue Range: audio (earbuds, headphones, speakers including the Supa Fly Twist) and phone accessories (cables, 100W chargers, power banks), plus the audio glasses and the headphone hanger, which could get us into gaming. After that the SF Fit Range (smart rings and watches). Signature Series and Circuit Series can wait.</p>
+   <p>Nine new products launch in the new year.</p>
+  </div></details>
+  <details class="acc"><summary>Brand look and tone</summary><div>
+   <p>Blue, arrows and handwritten touches. Quick, witty, playful and relatable, showing how Supa Fly makes everyday life a bit easier. Ideas on the table so far: "AI can't charge your phone", the story behind the name and some office culture.</p>
+  </div></details>
+  <details class="acc"><summary>What we deliver each month</summary><div>
+   <div class="scroll"><table>
+    <thead><tr><th>Deliverable</th><th class="num">Per month</th></tr></thead>
+    <tbody>
+     <tr><td>Static or carousel posts</td><td class="num">10</td></tr>
+     <tr><td>Reels (at least 4 also go on TikTok)</td><td class="num">10</td></tr>
+     <tr><td>Stories</td><td class="num">8</td></tr>
+     <tr><td>Paid media assets</td><td class="num">up to 4</td></tr>
+     <tr><td>Retailer and WhatsApp assets</td><td class="num">4</td></tr>
+     <tr><td>Recommended media spend</td><td class="num">R5 000–R7 500</td></tr>
+    </tbody>
+   </table></div>
+   <p class="small">Facebook, Instagram and TikTok. Media spend goes straight to the platforms and isn't part of the agency fee.</p>
+  </div></details>
+ </div>
+</div></section>
+
+<!-- BASELINE -->
+<section class="page band" id="baseline" data-title="Baselines and KPIs"><div class="wrap">
+ <h2>Where Supa Fly starts</h2>
+ <p class="point">We're writing down the starting numbers now so we can show what changed later. We'll set targets once we have four weeks of real data. Guessing them now wouldn't help anyone.</p>
+ <div class="scroll"><table>
+  <thead><tr><th>Measure, Nov–Dec 2026</th><th class="num">Today</th></tr></thead>
+  <tbody>
+   <tr><td>Instagram followers (quiet account)</td><td class="num">11</td></tr>
+   <tr><td>Facebook followers</td><td class="num">0</td></tr>
+   <tr><td>TikTok followers</td><td class="num">0, to confirm at set-up</td></tr>
+   <tr><td>Brand search, Google Trends 5-year average</td><td class="num">about 0</td></tr>
+   <tr><td>Social mentions and tags</td><td class="num">0</td></tr>
+   <tr><td>Takealot reviews that name the brand</td><td class="num">5.4%</td></tr>
+   <tr><td>Takealot average rating</td><td class="num">4.42 (997)</td></tr>
+   <tr><td>Website traffic</td><td class="num">No website</td></tr>
+  </tbody>
+ </table></div>
+ <div class="accs">
+  <details class="acc"><summary>What we'll track in phase one</summary><div>
+   <div class="recs">
+    <div class="rec"><h3>Reach and views</h3><p>How many people see Supa Fly on each platform, split into organic and paid.</p></div>
+    <div class="rec"><h3>Video views</h3><p>3-second and completed views on reels and TikToks. This is our main attention number.</p></div>
+    <div class="rec"><h3>Followers</h3><p>New followers per platform each month, next to the competitor numbers.</p></div>
+    <div class="rec"><h3>Shares and saves</h3><p>The best sign that content is travelling without ad money behind it.</p></div>
+    <div class="rec"><h3>Profile visits and tags</h3><p>Profile visits, brand tags and retailer tags show people are looking for Supa Fly.</p></div>
+    <div class="rec"><h3>Brand search</h3><p>Google Trends for "Supa Fly" and its misspellings, checked monthly against Volkano and Astrum.</p></div>
+   </div>
+   <p class="small" style="margin-top:16px">We won't be tracking sales, clicks through to retailers or return on ad spend in phase one.</p>
+  </div></details>
+  <details class="acc"><summary>Competitor numbers to compare against</summary><div>
+   <div class="scroll"><table class="stack">
+    <thead><tr><th>Brand</th><th class="num">Instagram</th><th class="num">Facebook</th><th class="num">TikTok</th><th class="num">Brand search</th></tr></thead>
+    <tbody>
+     <tr><td>Volkano</td><td class="num">44.2K</td><td class="num">–</td><td class="num">116.7K</td><td class="num">48</td></tr>
+     <tr><td>Anker SA</td><td class="num">11.9K</td><td class="num">–</td><td class="num">–</td><td class="num">17</td></tr>
+     <tr><td>Astrum</td><td class="num">10.7K</td><td class="num">5.2K</td><td class="num">407</td><td class="num">3</td></tr>
+     <tr><td>Gammatek</td><td class="num">9.6K</td><td class="num">55K</td><td class="num">–</td><td class="num">–</td></tr>
+    </tbody>
+   </table></div>
+   <p class="small">– means we didn't check it or it isn't available.</p>
+  </div></details>
+ </div>
+</div></section>
+
+<!-- OPPORTUNITIES -->
+<section class="page band" id="opportunities" data-title="Opportunities"><div class="wrap">
+ <h2>What we'd take into the strategy</h2>
+ <p class="point">These are the big moves. The strategy turns them into a monthly content plan.</p>
+ <div class="recs">
+  <div class="rec"><h3>Sort out the name first</h3><p>One spelling, @supaflysa and one hashtag on every platform before the first post.</p></div>
+  <div class="rec"><h3>Brand first, then the Blue Range</h3><p>Introduce Supa Fly, then let the Twist speaker, the audio glasses and the 100W chargers carry the name.</p></div>
+  <div class="rec"><h3>Own charging and power</h3><p>No local brand or creator has claimed it. Posts like "how many charges will I get?" build trust and help people buy the right thing.</p></div>
+  <div class="rec"><h3>Always say where to buy</h3><p>Stockist highlights, stores named in captions and quick replies. Competitors leave that question hanging in their comments.</p></div>
+  <div class="rec"><h3>Make TikTok content for TikTok</h3><p>Volkano's TikTok dipped once it started reposting Instagram, and Astrum hasn't really started. Trends and humour made for the platform have little local competition.</p></div>
+  <div class="rec"><h3>Use customers' words</h3><p>Value for money, how small and easy to pack the products are, charging two devices at once and gifting. That's what reviewers keep coming back to.</p></div>
+  <div class="rec"><h3>Get people commenting</h3><p>Contests and giveaways work for every brand we looked at. Tie the entry to the product so the chat stays about Supa Fly.</p></div>
+  <div class="rec"><h3>Spend on reach, not sales</h3><p>With R5 000–R7 500 a month we'd run reach and video view campaigns, targeted by region and season. Real product footage will earn more trust than AI-made product reels.</p></div>
+  <div class="rec"><h3>Bring retailers along</h3><p>Once we're live, retailers can tag Supa Fly. The monthly retailer and WhatsApp assets help every store tell the same story.</p></div>
+  <div class="rec"><h3>Set the profiles up properly</h3><p>Display name "Supa Fly", a clear bio, a link page with stockists, and highlights for Where to buy, Ranges, New in and Support.</p></div>
+ </div>
+ <div class="accs">
+  <details class="acc" open><summary>What we need from Supa Fly</summary><div>
+   <ul class="plain">
+    <li>A yes on "Supa Fly" as the spelling and the @supaflysa handle change</li>
+    <li>Whether @supafly_sa on Instagram belongs to anyone at Supa Fly</li>
+    <li>Access to the asset library, including any launch copy and video sent to retailers</li>
+    <li>Launch dates for the new-year products</li>
+    <li>Confirmed stockists and warranty details for the profile highlights</li>
+    <li>A think about a trademark check and a simple landing page for later</li>
+   </ul>
+  </div></details>
+ </div>
+</div></section>
+
+</div>
+
+<nav class="pager" aria-label="Page navigation">
+ <button class="prev" id="prev" type="button"><small>Back</small><span id="prevT"></span></button>
+ <button class="next" id="next" type="button"><small>Next</small><span id="nextT"></span></button>
+ <button class="next" id="homeBtn" type="button"><small>Finished</small><span>Back to the start</span></button>
+</nav>
+
+<footer class="band">
+ <div class="wrap">
+  <div class="lockup"><span class="word">Mama</span><span class="x">×</span><img src="data:image/png;base64,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" alt="Supa Fly"></div>
+  <p style="margin:16px 0 0">Audit date: Nov–Dec 2026</p>
+ </div>
+</footer>
+</main>
+</div>
+
+<script>
+{
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const bars=(el,rows,max,fmt,hiName)=>{el.innerHTML=rows.map(r=>{const w=Math.max(r.v/max*100,r.v===0?0.8:1.5);return `<div class="bar${r.n===hiName?' hi':''}"><span class="n" title="${esc(r.n)}">${esc(r.n)}</span><span class="t"><span class="f" style="width:${w}%"></span></span><span class="v">${esc(fmt(r))}</span></div>`}).join('')};
+bars(document.getElementById('searchBars'),[{n:'Volkano',v:48},{n:'Anker',v:17},{n:'UGREEN',v:3},{n:'Astrum',v:3},{n:'Supa Fly',v:0}],50,r=>r.v===0?'~0':'~'+r.v,'Supa Fly');
+bars(document.getElementById('starBars'),[{n:'5 stars',v:678},{n:'4 stars',v:186},{n:'3 stars',v:53},{n:'2 stars',v:33},{n:'1 star',v:47}],678,r=>r.v,'');
+bars(document.getElementById('reachBars'),[{n:'TikTok',v:29.1},{n:'Facebook',v:27.9},{n:'YouTube',v:26.9},{n:'LinkedIn',v:17.0},{n:'Instagram',v:8.6},{n:'Messenger',v:6.45},{n:'Snapchat',v:5.4}],29.1,r=>r.v+'M','Instagram');
+
+const s=document.getElementById('mapSvg');
+const pts=[{n:'Volkano',x:.3,y:.85},{n:'Anker SA',x:.2,y:.66},{n:'Astrum',x:.14,y:.38},{n:'Gammatek',x:.32,y:.2,sub:'reach borrowed from creators'}];
+const draw=()=>{const W=s.clientWidth,H=s.clientHeight;if(!W||!H)return;const m={l:W<520?34:52,r:20,t:20,b:W<520?40:48};const iw=W-m.l-m.r,ih=H-m.t-m.b;const X=v=>m.l+v*iw,Y=v=>m.t+(1-v)*ih;
+let o=`<rect x="${X(.68)}" y="${Y(.55)}" width="${X(.98)-X(.68)}" height="${Y(.05)-Y(.55)}" rx="8" fill="#ffd200" opacity=".9"/>`;
+o+=`<text x="${X(.83)}" y="${Y(.33)}" text-anchor="middle" font-size="${W<520?13:15}" font-weight="700" fill="#000" style="stroke:none">Open space</text><text x="${X(.83)}" y="${Y(.33)+18}" text-anchor="middle" font-size="13" fill="#000" style="stroke:none">${W<520?'organic, local':'organic, local, brand-led'}</text>`;
+o+=`<line x1="${m.l}" y1="${m.t}" x2="${m.l}" y2="${H-m.b}" stroke="currentColor" stroke-width="1.5"/><line x1="${m.l}" y1="${H-m.b}" x2="${W-m.r}" y2="${H-m.b}" stroke="currentColor" stroke-width="1.5"/>`;
+o+=`<line x1="${X(.5)}" y1="${m.t}" x2="${X(.5)}" y2="${H-m.b}" stroke="currentColor" stroke-opacity=".2" stroke-dasharray="4 4"/><line x1="${m.l}" y1="${Y(.5)}" x2="${W-m.r}" y2="${Y(.5)}" stroke="currentColor" stroke-opacity=".2" stroke-dasharray="4 4"/>`;
+o+=`<text x="${W-m.r}" y="${H-m.b+28}" text-anchor="end" font-size="13" fill="currentColor">Organic engagement →</text>`;
+o+=`<text transform="translate(${m.l-14},${m.t}) rotate(-90)" text-anchor="end" font-size="13" fill="currentColor">Reliance on paid reach →</text>`;
+pts.forEach(p=>{const cx=X(p.x),cy=Y(p.y);o+=`<circle cx="${cx}" cy="${cy}" r="8" fill="currentColor"/><text x="${cx+14}" y="${cy+5}" font-size="14" font-weight="700" fill="currentColor">${esc(p.n)}</text>`;if(p.sub&&W>=520)o+=`<text x="${cx+14}" y="${cy+22}" font-size="13" fill="currentColor" opacity=".75">${esc(p.sub)}</text>`});
+s.innerHTML=o;};
+const ro=new ResizeObserver(draw);ro.observe(s);
+
+const pages=[...document.querySelectorAll('.page')];
+const links=[...document.querySelectorAll('#nav a')];
+const prev=document.getElementById('prev'),next=document.getElementById('next');
+const nav=document.getElementById('nav');const homeBtn=document.getElementById('homeBtn');homeBtn.addEventListener('click',()=>go(0));document.getElementById('startBtn').addEventListener('click',()=>go(1));
+let cur=0;
+const show=(id,scroll)=>{let i=pages.findIndex(p=>p.id===id);if(i<0)i=0;cur=i;document.body.classList.toggle('is-home',pages[i].id==='home');
+ pages.forEach((p,j)=>p.classList.toggle('on',j===i));
+ links.forEach(a=>{const on=a.getAttribute('href')==='#'+pages[i].id;a.classList.toggle('on',on);if(on)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');if(on&&window.innerWidth<900)nav.scrollTo({left:a.offsetLeft-nav.offsetLeft-8})});
+ prev.hidden=i===0;next.hidden=i===pages.length-1;homeBtn.hidden=i!==pages.length-1;
+ if(i>0)document.getElementById('prevT').textContent=pages[i-1].dataset.title;
+ if(i<pages.length-1)document.getElementById('nextT').textContent=pages[i+1].dataset.title;
+ if(scroll)window.scrollTo({top:0});
+ draw();};
+const go=i=>{const id=pages[i].id;if(location.hash==='#'+id)show(id,true);else location.hash=id;};
+prev.addEventListener('click',()=>go(Math.max(cur-1,0)));
+next.addEventListener('click',()=>go(Math.min(cur+1,pages.length-1)));
+window.addEventListener('hashchange',()=>show(location.hash.slice(1),true));
+show(location.hash.slice(1),false);
+}
+</script>
+</body>
+</html>
